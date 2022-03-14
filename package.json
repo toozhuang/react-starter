@@ -1,0 +1,8 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/toozhuang/react-starter.git",
+  "author": "toozhuang <wangz.today@gmail.com>",
+  "license": "MIT"
+}
