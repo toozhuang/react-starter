@@ -4,6 +4,9 @@
 * feature： Webpack 配置
 */
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin}= require('clean-webpack-plugin')
+const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -16,5 +19,15 @@ module.exports = {
     output:{
         path: path.resolve(__dirname,'./dist'),
         filename: "[name].bundle.js",   // 注意这个 name 会是我们打包的那个文件的名称（比如 index
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title:'大帅比的1f1',
+            template: path.resolve(__dirname,'./public/index.html'),
+            filename: "index.html"
+        }),
+        new CleanWebpackPlugin(),
+        new friendlyErrorsWebpackPlugin()
+    ]
+
 }
