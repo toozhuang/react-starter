@@ -20,6 +20,23 @@ module.exports = {
         path: path.resolve(__dirname,'./dist'),
         filename: "[name].bundle.js",   // 注意这个 name 会是我们打包的那个文件的名称（比如 index
     },
+    //loader
+    module: {
+        rules: [
+            // JavaScript
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
+        ],
+    },
+    // 安装的 plugin 工具
     plugins: [
         new HtmlWebpackPlugin({
             title:'大帅比的1f1',
