@@ -19,6 +19,11 @@ module.exports = {
     output:{
         path: path.resolve(__dirname,'./dist'),
         filename: "[name].bundle.js",   // 注意这个 name 会是我们打包的那个文件的名称（比如 index
+        publicPath: "/" ,   // 刚刚在这个地方懵逼了一下， 现在理解这个的作用
+        // 是 我们通过 browser 访问这个 项目的时候， 的入口
+        // 比如我设置 public path 为 /shuaibi
+        // 那么最后当我用 web dev middleware 结合 node epxress 访问的时候
+        // 就会是 localhost:端口号/shuaibi 这样
     },
     // web dev server config
     devServer: {
