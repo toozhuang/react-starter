@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES6",
+      "dom"
+    ],
+    "outDir": "./dist/",  //  从ts转成js 的代码放到哪里
+    // "rootDir": "./src",
+    "sourceMap": true, // 开启sourcemap
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true
+  }
+}
+

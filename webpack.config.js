@@ -13,7 +13,7 @@ module.exports = {
     devtool: 'inline-source-map',
     // 项目入口， webpack 会从这个地方开始
     entry: {
-        app:'./src/index.js'    // app 就会是下面的 [name] 的值
+        app:'./src/index.tsx'    // app 就会是下面的 [name] 的值
     },
     // output webpack 打包完成后的文件会在这里
     output:{
@@ -48,6 +48,11 @@ module.exports = {
                         presets: ['@babel/preset-env'],
                     },
                 },
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             // CSS, PostCSS, and Sass
             {
