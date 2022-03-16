@@ -4,7 +4,10 @@
     "@typescript-eslint",
     "react"
   ],
-  "extends": ["plugin:@typescript-eslint/recommended","plugin:prettier/recommended"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "globals": {
     "d3": true,
     "module": true,
@@ -25,24 +28,56 @@
     "mocha": true
   },
   "rules": {
-    "indent": ["warn", 2],
-    "react/jsx-indent": ["warn", 2],
+    "indent": [
+      "warn",
+      2
+    ],
+    "react/jsx-indent": [
+      "warn",
+      2
+    ],
     "no-unused-vars": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "react/jsx-curly-spacing": [0, "always"],
+    "react/jsx-curly-spacing": [
+      0,
+      "always"
+    ],
     "react/jsx-key": 1,
-    "quotes": [ 1, "single" ],
+    "quotes": [
+      1,
+      "single"
+    ],
     "no-undef": 1,
     "global-strict": 0,
     "no-extra-semi": 1,
     "no-underscore-dangle": 0,
     "no-console": 0,
-    "no-trailing-spaces": [1, { "skipBlankLines": true }],
+    "no-trailing-spaces": [
+      1,
+      {
+        "skipBlankLines": true
+      }
+    ],
     "no-unreachable": 1,
     "no-alert": 0,
-    "object-curly-spacing": [0, "always"],
+    "object-curly-spacing": [
+      0,
+      "always"
+    ],
+    "import/prefer-default-export": "off"
   },
   "settings": {
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "server.js",
+        "webpack.config.js"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
 }
