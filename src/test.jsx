@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import './hello.scss';
 
+import _ from 'lodash';
+
 // const Anotherj = () => import(/* webpackChunkName: "anotherj" */ './anotherj');
 //
 // const App = () => {
@@ -59,7 +61,7 @@ const OtherComponent = React.lazy(() => import(/* webpackChunkName: "dashuaibi" 
 // });
 
 const App = () => {
-  // const b = _.join(['Hello', 'we222bpackssssss'], ' ');
+  const b = _.join(['Hello', 'we222bpackssssss'], ' ');
   // console.log('来了吗？', b);
   return (
     <Suspense fallback={<div>Loading...</div>}>
