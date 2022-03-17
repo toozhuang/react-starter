@@ -90,4 +90,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new friendlyErrorsWebpackPlugin(),
   ],
+  resolve: {
+    extensions: ['.js', '.json', '.tsx'],
+  },
 };
