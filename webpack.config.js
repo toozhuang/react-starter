@@ -7,6 +7,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -14,17 +15,24 @@ module.exports = {
   // 项目入口， webpack 会从这个地方开始
   entry: {
     app: './src/index.tsx', // app 就会是下面的 [name] 的值
+    another: './src/another.tsx',
   },
   // output webpack 打包完成后的文件会在这里
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js', // 注意这个 name 会是我们打包的那个文件的名称（比如 index
+    // 之前这部分是 bundle 现在改成了 [name].[hash:8].js
+    filename: '[name].[chunkhash].js', // 注意这个 name 会是我们打包的那个文件的名称（比如 index
     publicPath: '/', // 刚刚在这个地方懵逼了一下， 现在理解这个的作用
     // 是 我们通过 browser 访问这个 项目的时候， 的入口
     // 比如我设置 public path 为 /shuaibi
-    // 那么最后当我用 web dev middleware 结合 node epxress 访问的时候
+    // 那么最后当我用 web dev middleware 结合 node express 访问的时候
     // 就会是 localhost:端口号/shuaibi 这样
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
   // web dev server config
   devServer: {
     historyApiFallback: true,
@@ -58,7 +66,8 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
+          // 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -82,6 +91,7 @@ module.exports = {
   },
   // 安装的 plugin 工具
   plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].imstyle.css' }),
     new HtmlWebpackPlugin({
       title: '大帅比的1f1',
       template: path.resolve(__dirname, './public/index.html'),
