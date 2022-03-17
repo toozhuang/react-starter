@@ -14,8 +14,9 @@ module.exports = {
   devtool: 'inline-source-map',
   // 项目入口， webpack 会从这个地方开始
   entry: {
-    app: './src/index.tsx', // app 就会是下面的 [name] 的值
-    another: './src/another.tsx',
+    app: './src/test.jsx',
+    // app: './src/index.tsx', // app 就会是下面的 [name] 的值
+    // another: './src/another.tsx',
   },
   // output webpack 打包完成后的文件会在这里
   output: {
@@ -48,12 +49,13 @@ module.exports = {
     rules: [
       // JavaScript
       {
-        test: /\.m?js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime'],
           },
         },
       },

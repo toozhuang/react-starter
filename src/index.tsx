@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './hello.scss';
-import Another from './another';
+
+const hello = () => import(/* webpackChunkName: hello */ './another');
 
 const MyApp = () => {
   return (
     <div>
       hello wosssrld2
-      <Another />
+      {/*<Another />*/}
     </div>
   );
 };
