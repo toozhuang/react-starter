@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -101,6 +102,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new friendlyErrorsWebpackPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.json', '.tsx'],

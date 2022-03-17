@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import './hello.scss';
 
-import _ from 'lodash';
+// import _ from 'lodash';
 
 // const Anotherj = () => import(/* webpackChunkName: "anotherj" */ './anotherj');
 //
@@ -61,13 +61,14 @@ const OtherComponent = React.lazy(() => import(/* webpackChunkName: "dashuaibi" 
 // });
 
 const App = () => {
-  const b = _.join(['Hello', 'we222bpackssssss'], ' ');
+  const [display, setDisplay] = useState(false);
   // console.log('来了吗？', b);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div>
-        hello wosssrld2
-        <OtherComponent />
+        hello worldliness2
+        <button onClick={() => setDisplay(!display)}>hahah</button>
+        {display && <OtherComponent />}
       </div>
     </Suspense>
   );
